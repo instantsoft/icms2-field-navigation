@@ -256,7 +256,7 @@ class fieldNavigation extends cmsFormField {
 
         // проверка для совместимости
         if(method_exists($this->model, 'filterAvailableOnly')){
-            $this->model->filterAvailableOnly();
+            $this->model->filterIsNull('is_deleted');
         }
 
         return $this;
