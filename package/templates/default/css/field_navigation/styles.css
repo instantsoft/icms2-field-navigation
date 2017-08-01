@@ -1,0 +1,47 @@
+.ctype_navigation {
+    overflow: hidden;
+}
+.next_ctype_navigation {
+    float: right;
+    border-left: 5px solid #FFF;
+}
+.previous_ctype_navigation {
+    float: left;
+    border-right: 15px solid #FFF;
+}
+.previous_ctype_navigation, .next_ctype_navigation {
+    width: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #ecf0f1;
+}
+.ctype_navigation > div:last-child {
+    width: 100%;
+}
+.ctype_navigation .previous_ctype_navigation + .next_ctype_navigation {
+    width: 50%;
+}
+.previous_ctype_navigation a, .next_ctype_navigation a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #2c3e50;
+    text-align: center;
+}
+.previous_ctype_navigation a:hover, .next_ctype_navigation a:hover {
+    background: #dfe6e8;
+}
+@media screen and (max-width: 480px) {
+    .previous_ctype_navigation, .next_ctype_navigation {
+        width: 100%;
+        border: none;
+        margin: 0 0 5px;
+    }
+    .ctype_navigation .previous_ctype_navigation + .next_ctype_navigation {
+        width: 100%;
+        margin: 0;
+    }
+}
