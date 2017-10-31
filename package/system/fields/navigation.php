@@ -1,5 +1,12 @@
 <?php
-
+/******************************************************************************/
+//                                                                            //
+//                                InstantMedia                                //
+//	 		                                                                  //
+//                               written by Fuze                              //
+//                    https://instantvideo.ru/copyright.html                  //
+//                                                                            //
+/******************************************************************************/
 class fieldNavigation extends cmsFormField {
 
     public $title       = LANG_PARSER_NAVIGATION_TITLE;
@@ -7,15 +14,23 @@ class fieldNavigation extends cmsFormField {
     public $is_virtual  = true;
     public $allow_index = false;
 
-    private $model = null;
-    private $ctype = null;
+    protected $ctype = null;
+    protected $dataset = null;
+    public $filter_dataset = false;
 
-	function __construct($name, $options=false){
-
-        parent::__construct($name, $options);
-
-        $this->model = cmsCore::getModel('content');
-
+    /**
+     * Магия для работы кэширования (var_export)
+     * @param string $name
+     * @return object
+     */
+    public function __get($name) {
+        if($name == 'model'){
+            $core = cmsCore::getInstance();
+            if(!isset($core->field_nav_model)){
+                $core->field_nav_model = cmsCore::getModel('content');
+            }
+            return $core->field_nav_model;
+        }
     }
 
     public function getOptions(){
@@ -208,18 +223,51 @@ class fieldNavigation extends cmsFormField {
         return 1;
     }
 
-    private function setFilter() {
+    private function loadDataset() {
 
-        $dataset_id = $this->getOption('dataset_id');
+        if($this->dataset === null){
 
-        if ($dataset_id){
+            $dataset_id = $this->getOption('dataset_id');
 
-            $dataset = $this->model->getContentDataset($dataset_id);
+            $dataset_name = cmsCore::getInstance()->request->get('dataset', '');
 
-            if ($dataset){
-                $this->model->applyDatasetFilters($dataset, true);
+            if($dataset_name){
+
+                $dataset_id = false;
+
+                $this->dataset = $this->model->getItemByField('content_datasets', 'name', $dataset_name, function($item, $model){
+
+                    $item['filters'] = $item['filters'] ? cmsModel::yamlToArray($item['filters']) : array();
+                    $item['sorting'] = $item['sorting'] ? cmsModel::yamlToArray($item['sorting']) : array();
+
+                    return $item;
+
+                });
+
+                if($this->dataset){
+                    $this->filter_dataset = $this->dataset['name'];
+                }
+
             }
 
+            if ($dataset_id){
+
+                $this->dataset = $this->model->getContentDataset($dataset_id);
+
+            }
+
+        }
+
+        return $this;
+
+    }
+
+    private function setFilter() {
+
+        $this->loadDataset();
+
+        if($this->dataset){
+            $this->model->applyDatasetFilters($this->dataset, true);
         }
 
         if(!empty($this->item['category_id']) && $this->getOption('filter_cat')){
