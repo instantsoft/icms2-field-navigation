@@ -147,7 +147,7 @@ class fieldNavigation extends cmsFormField {
 
     public function parse($value) {
 
-        if(empty($this->item) || empty($this->item['ctype_name'])){
+        if(empty($this->item['id']) || empty($this->item['ctype_name'])){
             return '';
         }
 
@@ -167,6 +167,18 @@ class fieldNavigation extends cmsFormField {
 
         if(empty($this->item['parent_id']) && $this->getOption('filter_group_strict')){
             return '';
+        }
+
+        // грузим набор
+        $this->loadDataset();
+
+        // если есть набор, смотрим его сортировку
+        if($this->dataset){
+            if(!empty($this->dataset['sorting'])){
+                $last_sorting = end($this->dataset['sorting']);
+                $this->options['order_by'] = $last_sorting['by'];
+                $this->options['order_to'] = $last_sorting['to'];
+            }
         }
 
         $previous = $next = array();

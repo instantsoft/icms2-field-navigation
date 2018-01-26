@@ -8,7 +8,7 @@ define('LANG_PARSER_NAVIGATION_PREV_TITLE', '"Previous" link title');
 define('LANG_PARSER_NAVIGATION_T_HINT', 'Not specified, taken from the name');
 define('LANG_PARSER_NAVIGATION_ORDER_TO', 'Sorting direction');
 define('LANG_PARSER_NAVIGATION_DATASET_ID', 'Apply dataset');
-define('LANG_PARSER_NAVIGATION_DATASET_ID_HINT', 'The sorting rules in the dataset are ignored');
+define('LANG_PARSER_NAVIGATION_DATASET_ID_HINT', 'The sorting rules in the set override the ones defined here');
 define('LANG_PARSER_NAVIGATION_FILTER_CAT', 'Filter by category');
 define('LANG_PARSER_NAVIGATION_FILTER_USER', 'Filter by author');
 define('LANG_PARSER_NAVIGATION_FILTER_FOLDER', 'Filter by folder');

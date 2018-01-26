@@ -8,7 +8,7 @@ define('LANG_PARSER_NAVIGATION_PREV_TITLE', 'Заголовок ссылки "П
 define('LANG_PARSER_NAVIGATION_T_HINT', 'Если не указан, то берётся из названия');
 define('LANG_PARSER_NAVIGATION_ORDER_TO', 'Направление сортировки');
 define('LANG_PARSER_NAVIGATION_DATASET_ID', 'Применить набор');
-define('LANG_PARSER_NAVIGATION_DATASET_ID_HINT', 'Правила сортировки в наборе игнорируются');
+define('LANG_PARSER_NAVIGATION_DATASET_ID_HINT', 'Правила сортировки в наборе переопределяют заданные здесь');
 define('LANG_PARSER_NAVIGATION_FILTER_CAT', 'Фильтровать по категории записи');
 define('LANG_PARSER_NAVIGATION_FILTER_USER', 'Фильтровать по автору записи');
 define('LANG_PARSER_NAVIGATION_FILTER_FOLDER', 'Фильтровать по папке записи');
