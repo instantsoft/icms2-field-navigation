@@ -17,3 +17,7 @@ define('LANG_PARSER_NAVIGATION_TEMPLATE', 'Шаблон вывода');
 define('LANG_PARSER_NAVIGATION_TEMPLATE_HINT', 'Файл из директории assets/fields/ шаблона, название которого начинается на navigation');
 define('LANG_PARSER_NAVIGATION_FILTER_FOLDER_STRICT', 'Показывать навигацию только в записях, прикреплённых к папкам');
 define('LANG_PARSER_NAVIGATION_FILTER_GROUP_STRICT', 'Показывать навигацию только в записях, прикреплённых к группам');
+define('LANG_PARSER_NAVIGATION_CSS', 'CSS класс ссылки');
+define('LANG_PARSER_NAVIGATION_SHOW_IMG', 'Показывать фото');
+define('LANG_PARSER_NAVIGATION_IMG_FIELD', 'Поле изображения');
+define('LANG_PARSER_NAVIGATION_IMG_FIELD_PRESET', 'Пресет поля изображения');

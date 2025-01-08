@@ -17,3 +17,7 @@ define('LANG_PARSER_NAVIGATION_TEMPLATE', 'Template');
 define('LANG_PARSER_NAVIGATION_TEMPLATE_HINT', 'The file from the assets/fields/ template directory, whose name begins with the "navigation"');
 define('LANG_PARSER_NAVIGATION_FILTER_FOLDER_STRICT', 'Show navigation only in items, attached to folders');
 define('LANG_PARSER_NAVIGATION_FILTER_GROUP_STRICT', 'Show navigation only in items, attached to groups');
+define('LANG_PARSER_NAVIGATION_CSS', 'CSS link class');
+define('LANG_PARSER_NAVIGATION_SHOW_IMG', 'Show photo');
+define('LANG_PARSER_NAVIGATION_IMG_FIELD', 'Image field');
+define('LANG_PARSER_NAVIGATION_IMG_FIELD_PRESET', 'Image field preset');
